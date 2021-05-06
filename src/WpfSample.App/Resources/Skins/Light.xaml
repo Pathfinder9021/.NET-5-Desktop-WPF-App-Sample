@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- #region Window -->
+
+    <!-- #region Window border style -->
+    <SolidColorBrush x:Key="WindowActiveBorderBrush" Color="#333333" />
+    <SolidColorBrush x:Key="WindowInactiveBorderBrush" Color="#333333" />
+    <Color x:Key="WindowBorderShadowColor">Black</Color>
+    <!-- #endregion Window border style -->
+
+    <!-- #region Window title bar style -->
+    <System:Double x:Key="WindowTitleBarHeight">50</System:Double>
+    <SolidColorBrush x:Key="WindowTitleBarBackgroundBrush" Color="#353535" />
+    <SolidColorBrush x:Key="WindowInactiveTitleBarBackgroundBrush" Color="#353535" />
+    <SolidColorBrush x:Key="WindowTitleBarTextBrush" Color="White" />
+    <SolidColorBrush x:Key="WindowInactiveTitleBarTextBrush" Color="#FFC7C7C7" />
+    <System:Double x:Key="WindowTitleBarTextFontSize">20</System:Double>
+
+    <SolidColorBrush x:Key="WindowTitleBarButtonForegroundBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="WindowInactiveTitleBarButtonForegroundBrush" Color="#FFC7C7C7" />
+    <SolidColorBrush x:Key="WindowCloseButtonMouseOverBackgroundBrush" Color="#E81123" />
+    <SolidColorBrush x:Key="WindowCloseButtonMouseOverForegroundBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="WindowCloseButtonPressedBackgroundBrush" Color="#F1707A" />
+    <!-- #endregion Window title bar style -->
+
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="WindowInactiveBackgroundBrush" Color="Red" />
+    
+    <!-- #endregion Window -->
+
+    <SolidColorBrush x:Key="MouseOverOverlayBackgroundBrush" Color="#33FFFFFF" />
+    <SolidColorBrush x:Key="PressedOverlayBackgroundBrush" Color="#44FFFFFF" />
+</ResourceDictionary>

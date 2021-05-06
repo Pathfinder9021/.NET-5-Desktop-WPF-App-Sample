@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfSample.App.Views.SplashScreenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfSample.App.Views"
+        xmlns:locazation="clr-namespace:WpfSample.App.Localization"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Width="600"
+        Height="200">
+    <Grid Background="Black">
+        <ProgressBar x:Name="progressBar" IsIndeterminate="True" Width="150" Height="15"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{locazation:Localize SplashScreenLoading}"/>
+        <TextBlock x:Name="message" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+</Window>

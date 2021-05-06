@@ -1,0 +1,90 @@
+﻿<Window x:Class="WpfSample.App.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:locazation="clr-namespace:WpfSample.App.Localization"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        Style="{StaticResource WindowStyle}"
+        Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainViewModel}"
+        mc:Ignorable="d">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="50" GlassFrameThickness="0" ResizeBorderThickness="{x:Static SystemParameters.WindowResizeBorderThickness}" />
+    </WindowChrome.WindowChrome>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Title bar -->
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Style="{StaticResource WindowTitleBarStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Style="{DynamicResource WindowTitlebarIconStyle}"
+                   Source="/Resources/Assets/Images/Icon.png" />
+            <TextBlock Grid.Column="1" Style="{DynamicResource WindowTitlebarTextStyle}"
+                       Text="{locazation:Localize ApplicationName}" />
+            <Button	Grid.Column="2" Style="{StaticResource DefaultTitleBarButtonStyle}"
+					Click="OnMinimizeButtonClick"
+					RenderOptions.EdgeMode="Aliased"
+                    ToolTip="{locazation:Localize WindowTitleBarMinimizeButtonTooltip}">
+                <Path
+						Width="{StaticResource WindowTitleBarButtonWidth}"
+						Height="{StaticResource WindowTitleBarButtonHeight}"
+						Data="M 18,15 H 28"
+						Stroke="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+						StrokeThickness="1" />
+            </Button>
+            <Button	Grid.Column="3" Style="{StaticResource DefaultTitleBarButtonStyle}"
+                    Name="maximizeButton"
+					Click="OnMaximizeRestoreButtonClick"
+                    ToolTip="{locazation:Localize WindowTitleBarMaximizeButtonTooltip}">
+                <Path
+						Width="{StaticResource WindowTitleBarButtonWidth}"
+						Height="{StaticResource WindowTitleBarButtonHeight}"
+						Data="M 18.5,10.5 H 27.5 V 19.5 H 18.5 Z"
+						Stroke="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+						StrokeThickness="1" />
+            </Button>
+            <Button Grid.Column="3" Style="{StaticResource DefaultTitleBarButtonStyle}"                
+					Name="restoreButton"
+					Click="OnMaximizeRestoreButtonClick"
+                    ToolTip="{locazation:Localize WindowTitleBarRestoreDownButtonTooltip}">
+                <Path
+						Width="{StaticResource WindowTitleBarButtonWidth}"
+						Height="{StaticResource WindowTitleBarButtonHeight}"
+						Data="M 18.5,12.5 H 25.5 V 19.5 H 18.5 Z M 20.5,12.5 V 10.5 H 27.5 V 17.5 H 25.5"
+						Stroke="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+						StrokeThickness="1" />
+            </Button>
+            <Button	Grid.Column="4" Style="{StaticResource DangerTitleBarButtonStyle}"
+					Click="OnCloseButtonClick"
+                    ToolTip="{locazation:Localize WindowTitleBarCloseButtonTooltip}">
+                <Path
+						Width="{StaticResource WindowTitleBarButtonWidth}"
+						Height="{StaticResource WindowTitleBarButtonHeight}"
+						Data="M 18,11 27,20 M 18,20 27,11"
+						Stroke="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+						StrokeThickness="1" />
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Input:" />
+                <TextBox Width="300" Text="{Binding Input, Mode=TwoWay}" />
+                <Button Command="{Binding ExecuteCommand}" Content="Execute" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
